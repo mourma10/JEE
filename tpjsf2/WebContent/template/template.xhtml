@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="title">Title</ui:insert></title>
+	<h:outputStylesheet name="styles.css" library="css" />
+</h:head>
+
+<h:body>
+
+	<div id="container">
+		<div id="header">
+			<h1>
+				<a href="/">CRM</a>
+			</h1>
+			<h2>Gestion Clients</h2>
+			<div class="clear"></div>
+		</div>
+		<div>
+			<h:form>  
+		    <p:growl id="messages"/>
+			    <p:menubar>
+			        <p:menuitem value="Clients" action="#{clientBean.list}" />
+			        <p:menuitem value="Examples" url="#"  />
+			        <p:menuitem value="Products" url="#"  />
+			        <p:menuitem value="Solutions" url="#"  />
+			        <p:menuitem value="Contact" url="#"  />
+			        <f:facet name="options">
+			            <p:inputText style="margin-right:10px" placeholder="Search"/>
+			            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+			        </f:facet>
+			    </p:menubar>
+			</h:form>
+		</div>
+		<div id="body">
+			<div id="content">
+				<ui:insert name="content">
+					<h1>BODY</h1>
+				</ui:insert>
+			</div>
+			<div>
+				<h:form style="float:right">
+					<p:growl id="mess" showDetail="false"/>
+					<p:menu toggleable="true">
+						<p:submenu label="Navigate">
+		            		<p:menuitem value="Home"  update="mess" />
+		            		<p:menuitem value="Examples" update="mess" />
+		            		<p:menuitem value="Products" update="mess" />
+		            		<p:menuitem value="Solutions" update="mess" />
+		            		<p:menuitem value="Contact" update="mess" />
+	            		</p:submenu>
+	            		<p:submenu label="About">
+	            			<p:menuitem update="mess">
+								<p style="margin: 0;">Aenean nec massa a tortor auctor
+									sodales sed a dolor. Duis vitae lorem sem. Proin at velit vel
+									arcu pretium luctus.
+								</p>
+							</p:menuitem>
+	            		</p:submenu>
+	            		<p:submenu label="Search">
+	            			<p:menuitem update="mess">
+								<h:form>
+									<p:inputText size="12"/> 
+									<p:commandButton value="Search" />
+								</h:form>
+							</p:menuitem>
+	            		</p:submenu>
+	            		<p:submenu label="Sponsors">
+	            			<p:menuitem update="mess">
+								<a href="http://www.themeforest.net/?ref=spykawg"
+								title="premium templates"><strong>ThemeForest</strong></a> -
+								premium HTML templates, WordPress themes and PHP scripts
+							</p:menuitem>
+							<p:menuitem update="mess">
+								<a href="http://www.dreamhost.com/r.cgi?259541"
+								title="web hosting"><strong>Web hosting</strong></a> - 50
+								dollars off when you use promocode <strong>awesome50</strong>
+							</p:menuitem>
+							<p:menuitem update="mess">
+								<a href="http://www.4templates.com/?aff=spykawg"
+								title="4templates"><strong>4templates</strong></a> - brilliant
+								premium templates
+							</p:menuitem>
+	            		</p:submenu>
+					</p:menu>
+				</h:form>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="footer">
+			<div class="footer-content">
+				<ul>
+					<li><h4>Proin accumsan</h4></li>
+					<li><a href="#">Rutrum nulla a ultrices</a></li>
+					<li><a href="#">Blandit elementum</a></li>
+					<li><a href="#">Proin placerat accumsan</a></li>
+					<li><a href="#">Morbi hendrerit libero </a></li>
+					<li><a href="#">Curabitur sit amet tellus</a></li>
+				</ul>
+
+				<ul>
+					<li><h4>Condimentum</h4></li>
+					<li><a href="#">Curabitur sit amet tellus</a></li>
+					<li><a href="#">Morbi hendrerit libero </a></li>
+					<li><a href="#">Proin placerat accumsan</a></li>
+					<li><a href="#">Rutrum nulla a ultrices</a></li>
+					<li><a href="#">Cras dictum</a></li>
+				</ul>
+
+				<ul class="endfooter">
+					<li><h4>Suspendisse</h4></li>
+					<li><a href="#">Morbi hendrerit libero </a></li>
+					<li><a href="#">Proin placerat accumsan</a></li>
+					<li><a href="#">Rutrum nulla a ultrices</a></li>
+					<li><a href="#">Curabitur sit amet tellus</a></li>
+					<li><a href="#">Donec in ligula nisl.</a></li>
+				</ul>
+
+				<div class="clear"></div>
+			</div>
+			<div class="footer-bottom">
+				<p>
+					&copy; YourSite 2010. <a href="http://zypopwebtemplates.com/">Free
+						Website Templates</a> by ZyPOP
+				</p>
+			</div>
+		</div>
+	</div>
+
+</h:body>
+
+</html>

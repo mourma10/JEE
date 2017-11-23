@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+	<p:dataTable id="clients" value="#{clientBean.clients}" var="client" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                 paginator="true" rows="10" border="1" style="margin-bottom:20px">
+                 
+        <f:facet name="{Exporters}">
+            <p:commandLink ajax="false">
+                <p:graphicImage value="/resources/images/pdf.png" width="20"/>
+                <p:dataExporter type="pdf" target="clients" fileName="clients"/>
+            </p:commandLink>
+        </f:facet>
+ 
+		<p:column id="ID">
+			<f:facet name="header">
+				<h:outputText value="ID" />
+			</f:facet>
+			<h:outputText value="#{client.id}"></h:outputText>
+		</p:column>
+		<p:column id="nom">
+			<f:facet name="header">
+				<h:outputText value="Nom"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{client.nom}"></h:outputText>
+		</p:column>
+		
+		<p:column id="prenom">
+			<f:facet name="header">
+				<h:outputText value="Prenom"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{client.prenom}"></h:outputText>
+		</p:column>
+		<p:column id="adresse">
+			<f:facet name="header">
+				<h:outputText value="Adresse"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{client.adresse}"></h:outputText>
+		</p:column>
+		<p:column id="datesouscription">
+			<f:facet name="header">
+				<h:outputText value="Date"></h:outputText>
+			</f:facet>
+			<h:outputText value="#{client.dateSouscription}"></h:outputText>
+		</p:column>
+		<p:column>
+			<p:commandButton icon="fa fa-edit" type="button" action="#{clientBean.update}">
+				<f:setPropertyActionListener target="#{clientBean.client}" value="#{client}"/>
+				<f:ajax execute="@this" render="@form" />
+			</p:commandButton>
+		</p:column>
+		<p:column>
+			<p:commandButton icon="fa fa-trash" type="button" action="#{clientBean.delete}">
+				<f:setPropertyActionListener target="#{clientBean.client}" value="#{client}"/>
+				<f:ajax execute="@this" render="@form" />
+			</p:commandButton>
+		</p:column>
+		
+	</p:dataTable>
+</ui:composition>
+</html>
